@@ -99,7 +99,7 @@
             // 
             // _pickCard
             // 
-            this._pickCard.Location = new System.Drawing.Point(47, 531);
+            this._pickCard.Location = new System.Drawing.Point(47, 605);
             this._pickCard.Name = "_pickCard";
             this._pickCard.Size = new System.Drawing.Size(175, 23);
             this._pickCard.TabIndex = 11;
@@ -126,7 +126,7 @@
             // 
             // _stand
             // 
-            this._stand.Location = new System.Drawing.Point(228, 531);
+            this._stand.Location = new System.Drawing.Point(231, 605);
             this._stand.Name = "_stand";
             this._stand.Size = new System.Drawing.Size(175, 23);
             this._stand.TabIndex = 14;
@@ -136,7 +136,7 @@
             // 
             // _textBoxPlayerPoints
             // 
-            this._textBoxPlayerPoints.Location = new System.Drawing.Point(122, 573);
+            this._textBoxPlayerPoints.Location = new System.Drawing.Point(147, 564);
             this._textBoxPlayerPoints.Name = "_textBoxPlayerPoints";
             this._textBoxPlayerPoints.ReadOnly = true;
             this._textBoxPlayerPoints.Size = new System.Drawing.Size(75, 22);
@@ -144,7 +144,7 @@
             // 
             // _playerTotal
             // 
-            this._playerTotal.Location = new System.Drawing.Point(44, 573);
+            this._playerTotal.Location = new System.Drawing.Point(60, 564);
             this._playerTotal.Name = "_playerTotal";
             this._playerTotal.Size = new System.Drawing.Size(72, 22);
             this._playerTotal.TabIndex = 17;
