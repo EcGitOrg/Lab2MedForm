@@ -58,9 +58,9 @@
             this._exitBotton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_exitBotton.BackgroundImage")));
             this._exitBotton.Cursor = System.Windows.Forms.Cursors.Default;
             this._exitBotton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._exitBotton.Location = new System.Drawing.Point(1005, 585);
+            this._exitBotton.Location = new System.Drawing.Point(1020, 12);
             this._exitBotton.Name = "_exitBotton";
-            this._exitBotton.Size = new System.Drawing.Size(108, 108);
+            this._exitBotton.Size = new System.Drawing.Size(91, 98);
             this._exitBotton.TabIndex = 1;
             this._exitBotton.UseVisualStyleBackColor = false;
             this._exitBotton.Click += new System.EventHandler(this._exitBotton_Click);

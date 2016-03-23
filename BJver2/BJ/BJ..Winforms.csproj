@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\button.png" />
+    <Content Include="Resources\exit-button2jpg.jpg" />
     <Content Include="Resources\EXIT.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
