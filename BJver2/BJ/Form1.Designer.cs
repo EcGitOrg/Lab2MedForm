@@ -52,20 +52,24 @@
             // 
             // _exitBotton
             // 
-            this._exitBotton.Location = new System.Drawing.Point(878, 642);
+            this._exitBotton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this._exitBotton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this._exitBotton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this._exitBotton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_exitBotton.BackgroundImage")));
+            this._exitBotton.Cursor = System.Windows.Forms.Cursors.Default;
+            this._exitBotton.Location = new System.Drawing.Point(1013, 594);
             this._exitBotton.Name = "_exitBotton";
-            this._exitBotton.Size = new System.Drawing.Size(111, 39);
+            this._exitBotton.Size = new System.Drawing.Size(103, 105);
             this._exitBotton.TabIndex = 1;
-            this._exitBotton.Text = "Exit";
-            this._exitBotton.UseVisualStyleBackColor = true;
+            this._exitBotton.UseVisualStyleBackColor = false;
             this._exitBotton.Click += new System.EventHandler(this._exitBotton_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.ErrorImage = global::BJ.Properties.Resources.dealer;
-            this.pictureBox1.Image = global::BJ.Properties.Resources.dealer;
-            this.pictureBox1.Location = new System.Drawing.Point(895, 232);
+            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(917, 232);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(163, 196);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -74,7 +78,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::BJ.Properties.Resources.Player;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(47, 232);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(175, 196);
@@ -101,11 +105,11 @@
             // 
             // _pickCard
             // 
-            this._pickCard.Location = new System.Drawing.Point(47, 605);
+            this._pickCard.Location = new System.Drawing.Point(47, 574);
             this._pickCard.Name = "_pickCard";
             this._pickCard.Size = new System.Drawing.Size(175, 23);
             this._pickCard.TabIndex = 11;
-            this._pickCard.Text = "Extra card";
+            this._pickCard.Text = "Next Card";
             this._pickCard.UseVisualStyleBackColor = true;
             this._pickCard.Click += new System.EventHandler(this._pickCard_Click);
             // 
@@ -128,7 +132,7 @@
             // 
             // _stand
             // 
-            this._stand.Location = new System.Drawing.Point(231, 605);
+            this._stand.Location = new System.Drawing.Point(240, 574);
             this._stand.Name = "_stand";
             this._stand.Size = new System.Drawing.Size(175, 23);
             this._stand.TabIndex = 14;
@@ -138,7 +142,7 @@
             // 
             // _textBoxPlayerPoints
             // 
-            this._textBoxPlayerPoints.Location = new System.Drawing.Point(147, 564);
+            this._textBoxPlayerPoints.Location = new System.Drawing.Point(228, 406);
             this._textBoxPlayerPoints.Name = "_textBoxPlayerPoints";
             this._textBoxPlayerPoints.ReadOnly = true;
             this._textBoxPlayerPoints.Size = new System.Drawing.Size(75, 20);
@@ -146,7 +150,7 @@
             // 
             // _playerTotal
             // 
-            this._playerTotal.Location = new System.Drawing.Point(60, 564);
+            this._playerTotal.Location = new System.Drawing.Point(228, 370);
             this._playerTotal.Name = "_playerTotal";
             this._playerTotal.Size = new System.Drawing.Size(72, 22);
             this._playerTotal.TabIndex = 17;
@@ -155,7 +159,7 @@
             // 
             // _dealerTotal
             // 
-            this._dealerTotal.Location = new System.Drawing.Point(986, 564);
+            this._dealerTotal.Location = new System.Drawing.Point(839, 370);
             this._dealerTotal.Name = "_dealerTotal";
             this._dealerTotal.Size = new System.Drawing.Size(72, 22);
             this._dealerTotal.TabIndex = 18;
@@ -164,7 +168,7 @@
             // 
             // _textBoxDealerPoints
             // 
-            this._textBoxDealerPoints.Location = new System.Drawing.Point(895, 564);
+            this._textBoxDealerPoints.Location = new System.Drawing.Point(837, 406);
             this._textBoxDealerPoints.Name = "_textBoxDealerPoints";
             this._textBoxDealerPoints.ReadOnly = true;
             this._textBoxDealerPoints.Size = new System.Drawing.Size(74, 20);
@@ -173,6 +177,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.label1.Location = new System.Drawing.Point(44, 431);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(10, 13);
@@ -182,6 +187,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.label2.Location = new System.Drawing.Point(792, 431);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -205,7 +211,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1105, 702);
+            this.ClientSize = new System.Drawing.Size(1123, 705);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this._textBoxDealerPoints);
