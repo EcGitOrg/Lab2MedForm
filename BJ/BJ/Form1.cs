@@ -38,7 +38,6 @@ namespace BJ
             dealer.CheckActiveDeck(deck);
 
             /*
-
               public Form1() {
         InitializeComponent();
         var pos = this.PointToScreen(label1.Location);
@@ -141,7 +140,7 @@ namespace BJ
         private void Win()
         {
 
-
+            ValidBet = false;
             PlayerCardValue = 0;
             DealerTotalCardValue = 0;
             MessageBox.Show("YOU WIN!!");
@@ -154,6 +153,7 @@ namespace BJ
         }
         private new void Update()
         {
+            ValidBet = false;
             _playerPrint.Text = player.GetCardText();
             _dealerPrint.Text = dealer.GetCardText();
             textBoxWallet.Text = player.balance.ToString();
