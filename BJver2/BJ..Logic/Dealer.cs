@@ -18,7 +18,7 @@ namespace BJ
             this.ActiveDeck = new List<Card>();
             this.DealerHand = new List<Card>();
         }
-        public override string GetCardText()
+        public override string GetCardText( )
         {
             int nr = 1;
             string outPut = "";

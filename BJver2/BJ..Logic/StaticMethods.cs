@@ -19,7 +19,7 @@ namespace BJ
             if (y == 0) { Ytype = "Heart"; }
             if (y == 1) { Ytype = "Dimond"; }
             if (y == 2) { Ytype = "Spade"; }
-            if (y == 3) { Ytype = "Clobe"; }
+            if (y == 3) { Ytype = "Clubs"; }
 
             return Ytype;
         }
@@ -79,6 +79,28 @@ namespace BJ
             if (x == 11) { type = "Queen"; }
             if (x == 12) { type = "King"; }
             return type;
+        }
+        public static string GetFormCard(Card card)
+        {
+            string output = "";
+            if (card._Color == "Heart") { } // 🂱🂲🂳
+
+            if (card._Color == "Dimond") { } //
+
+            if (card._Color == "Spade") { }//
+
+            if (card._Color == "Clubs") { }//
+
+
+
+
+
+
+
+
+
+
+            return output;
         }
         
     }

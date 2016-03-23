@@ -18,7 +18,7 @@ namespace BJ
             this.PlayerHand = new List<Card>();
             this.SplittHand = new List<Card>();
         }
-        public override string GetCardText()
+        public override string GetCardText( )
         {      
             string outPut = "";
             int nr = 1;
@@ -30,7 +30,11 @@ namespace BJ
         
             return outPut;
         }
-    
+        public Card  GetCard(int index)
+        {     
+            return PlayerHand[index];
+        }
+
         /// <summary>
         /// Adds a card to player hand
         /// </summary>
