@@ -45,6 +45,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.bid1 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -57,9 +59,10 @@
             this._exitBotton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this._exitBotton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("_exitBotton.BackgroundImage")));
             this._exitBotton.Cursor = System.Windows.Forms.Cursors.Default;
-            this._exitBotton.Location = new System.Drawing.Point(1013, 594);
+            this._exitBotton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._exitBotton.Location = new System.Drawing.Point(1005, 585);
             this._exitBotton.Name = "_exitBotton";
-            this._exitBotton.Size = new System.Drawing.Size(103, 105);
+            this._exitBotton.Size = new System.Drawing.Size(108, 108);
             this._exitBotton.TabIndex = 1;
             this._exitBotton.UseVisualStyleBackColor = false;
             this._exitBotton.Click += new System.EventHandler(this._exitBotton_Click);
@@ -67,8 +70,8 @@
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = global::BJ.Properties.Resources.dealer;
             this.pictureBox1.Location = new System.Drawing.Point(917, 232);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(163, 196);
@@ -78,7 +81,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Image = global::BJ.Properties.Resources.Player;
             this.pictureBox2.Location = new System.Drawing.Point(47, 232);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(175, 196);
@@ -100,12 +103,12 @@
             // 
             this._betReadBox.Location = new System.Drawing.Point(310, 261);
             this._betReadBox.Name = "_betReadBox";
-            this._betReadBox.Size = new System.Drawing.Size(75, 20);
+            this._betReadBox.Size = new System.Drawing.Size(75, 22);
             this._betReadBox.TabIndex = 10;
             // 
             // _pickCard
             // 
-            this._pickCard.Location = new System.Drawing.Point(47, 574);
+            this._pickCard.Location = new System.Drawing.Point(285, 612);
             this._pickCard.Name = "_pickCard";
             this._pickCard.Size = new System.Drawing.Size(175, 23);
             this._pickCard.TabIndex = 11;
@@ -118,7 +121,7 @@
             this.textBoxWallet.Location = new System.Drawing.Point(285, 232);
             this.textBoxWallet.Name = "textBoxWallet";
             this.textBoxWallet.ReadOnly = true;
-            this.textBoxWallet.Size = new System.Drawing.Size(100, 20);
+            this.textBoxWallet.Size = new System.Drawing.Size(100, 22);
             this.textBoxWallet.TabIndex = 12;
             // 
             // _wallet
@@ -132,7 +135,7 @@
             // 
             // _stand
             // 
-            this._stand.Location = new System.Drawing.Point(240, 574);
+            this._stand.Location = new System.Drawing.Point(285, 641);
             this._stand.Name = "_stand";
             this._stand.Size = new System.Drawing.Size(175, 23);
             this._stand.TabIndex = 14;
@@ -145,7 +148,7 @@
             this._textBoxPlayerPoints.Location = new System.Drawing.Point(228, 406);
             this._textBoxPlayerPoints.Name = "_textBoxPlayerPoints";
             this._textBoxPlayerPoints.ReadOnly = true;
-            this._textBoxPlayerPoints.Size = new System.Drawing.Size(75, 20);
+            this._textBoxPlayerPoints.Size = new System.Drawing.Size(75, 22);
             this._textBoxPlayerPoints.TabIndex = 16;
             // 
             // _playerTotal
@@ -171,16 +174,16 @@
             this._textBoxDealerPoints.Location = new System.Drawing.Point(837, 406);
             this._textBoxDealerPoints.Name = "_textBoxDealerPoints";
             this._textBoxDealerPoints.ReadOnly = true;
-            this._textBoxDealerPoints.Size = new System.Drawing.Size(74, 20);
+            this._textBoxDealerPoints.Size = new System.Drawing.Size(74, 22);
             this._textBoxDealerPoints.TabIndex = 19;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(44, 431);
+            this.label1.Location = new System.Drawing.Point(138, 431);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(10, 13);
+            this.label1.Size = new System.Drawing.Size(12, 17);
             this.label1.TabIndex = 20;
             this.label1.Text = ",";
             // 
@@ -191,7 +194,7 @@
             this.label2.Location = new System.Drawing.Point(792, 431);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label2.Size = new System.Drawing.Size(10, 13);
+            this.label2.Size = new System.Drawing.Size(12, 17);
             this.label2.TabIndex = 21;
             this.label2.Text = ".";
             // 
@@ -199,12 +202,30 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(-36, 348);
+            this.pictureBox3.Location = new System.Drawing.Point(0, 370);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(1141, 368);
+            this.pictureBox3.Size = new System.Drawing.Size(1123, 366);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox3.TabIndex = 22;
             this.pictureBox3.TabStop = false;
+            // 
+            // bid1
+            // 
+            this.bid1.Location = new System.Drawing.Point(12, 577);
+            this.bid1.Name = "bid1";
+            this.bid1.Size = new System.Drawing.Size(42, 42);
+            this.bid1.TabIndex = 23;
+            this.bid1.UseVisualStyleBackColor = false;
+            this.bid1.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(60, 603);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(44, 40);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -212,8 +233,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1123, 705);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bid1);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this._textBoxDealerPoints);
             this.Controls.Add(this._dealerTotal);
             this.Controls.Add(this._playerTotal);
@@ -260,6 +283,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button bid1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
