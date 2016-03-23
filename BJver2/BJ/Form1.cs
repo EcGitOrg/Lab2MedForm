@@ -25,10 +25,20 @@ namespace BJ
 
         public Form1()
         {
-            BackgroundImage = Properties.Resources.BlackJack_image4;
+           //BackgroundImage = Properties.Resources.BlackJack_image4;
             InitializeComponent();
             label1.Font = new Font("", 80);
-            label1.Text = "🃉";
+            label2.Font = new Font("", 80);
+
+            //var pos = this.PointToScreen(label1.Location);
+            //pos = BackgroundImage.PointToClient(pos);
+            //label1.Parent = pictureBox1;
+            //label1.Location = pos;
+            //label1.BackColor = Color.Transparent;
+            //  label1.ForeColor = Color.Black;
+          
+            label1.BackColor = Color.Transparent;
+            label2.BackColor = Color.Transparent;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -127,31 +137,27 @@ namespace BJ
         }
         private new void Update()
         {
-
+          
+            string VisualCardHandPlayer = "";
+            string VisualCardHandDealer = "";
             int CardNr = 0;
             foreach (var item in player.PlayerHand)
-            {
-                //  ♡  ♢  ♠  ♣
-                if (item._Color == "♡" || item._Color == "♢") { ForeColor = Color.Red; }
-                if (item._Color == "♠" || item._Color == "♣") { ForeColor = Color.Black; }
-                Card card = player.GetCard(CardNr);
-                if (CardNr == 0)
-                    _playerPrintsCard1.Text = $"{card.Type}{card._Color} {nl()} {nl()} {nl()}      {card._Color}{card.Type}";
-                if (CardNr == 1)
-                    _playerPrintsCard2.Text = $"{card.Type}{card._Color} {nl()} {nl()} {nl()}      {card._Color}{card.Type}";
-                if (CardNr == 2)
-                    _playerPrintsCard3.Text = $"{card.Type}{card._Color} {nl()} {nl()} {nl()}     {card._Color }{card.Type}";
-                if (CardNr == 3)
-                    _playerPrintsCard4.Text = $"{card.Type}{card._Color} {nl()} {nl()} {nl()}     {card._Color}{card.Type}";
-                if (CardNr == 4)
-                    _playerPrintsCard5.Text = $"{card.Type}{card._Color} {nl()} {nl()} {nl()}     {card._Color}{card.Type}";
-                if (CardNr == 5)
-                    _playerPrintsCard6.Text = $"{card.Type}{card._Color} {nl()} {nl()} {nl()}      {card._Color}{card.Type}";
-                CardNr++;
+            {           
+                string VisualCard = StaticMethods.GetFormCard(item);
+                VisualCardHandPlayer += VisualCard;
+                Card card = player.GetCard(CardNr);            
             }
-            ForeColor = Color.Black;
+            foreach (var item in dealer.DealerHand)
+            {
+                string VisualCard = StaticMethods.GetFormCard(item);
+                VisualCardHandDealer += VisualCard;
+                Card card = player.GetCard(CardNr);
+            }
 
-            _dealerPrint.Text = dealer.GetCardText();
+            label1.Text = VisualCardHandPlayer;
+            label2.Text = VisualCardHandDealer;
+
+           
             textBoxWallet.Text = player.balance.ToString();
             _textBoxDealerPoints.Text = StaticMethods.CountValue(dealer.ShowDealerHand()).ToString();
             _textBoxPlayerPoints.Text = StaticMethods.CountValue(player.ShowPlayerHand()).ToString();
@@ -168,12 +174,7 @@ namespace BJ
             _betReadBox.Text = "";
             Update();
 
-            _playerPrintsCard1.Text = "";
-            _playerPrintsCard2.Text = "";
-            _playerPrintsCard3.Text = "";
-            _playerPrintsCard4.Text = "";
-            _playerPrintsCard5.Text = "";
-            _playerPrintsCard6.Text = "";
+     
         }
         public string nl()
         {

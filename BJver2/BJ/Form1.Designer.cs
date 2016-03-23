@@ -32,8 +32,6 @@
             this._exitBotton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this._playerPrintCard1 = new System.Windows.Forms.TextBox();
-            this._dealerPrint = new System.Windows.Forms.TextBox();
             this._betButton = new System.Windows.Forms.Button();
             this._betReadBox = new System.Windows.Forms.TextBox();
             this._pickCard = new System.Windows.Forms.Button();
@@ -44,14 +42,8 @@
             this._playerTotal = new System.Windows.Forms.Label();
             this._dealerTotal = new System.Windows.Forms.Label();
             this._textBoxDealerPoints = new System.Windows.Forms.TextBox();
-            this._playerPrintsCard2 = new System.Windows.Forms.TextBox();
-            this._playerPrintsCard5 = new System.Windows.Forms.TextBox();
-            this._playerPrintsCard4 = new System.Windows.Forms.TextBox();
-            this._playerPrintsCard1 = new System.Windows.Forms.TextBox();
-            this._playerPrintsCard6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this._playerPrintsCard3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -88,24 +80,6 @@
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
             // 
-            // _playerPrintCard1
-            // 
-            this._playerPrintCard1.Location = new System.Drawing.Point(577, 300);
-            this._playerPrintCard1.Multiline = true;
-            this._playerPrintCard1.Name = "_playerPrintCard1";
-            this._playerPrintCard1.ReadOnly = true;
-            this._playerPrintCard1.Size = new System.Drawing.Size(47, 65);
-            this._playerPrintCard1.TabIndex = 7;
-            // 
-            // _dealerPrint
-            // 
-            this._dealerPrint.Location = new System.Drawing.Point(895, 437);
-            this._dealerPrint.Multiline = true;
-            this._dealerPrint.Name = "_dealerPrint";
-            this._dealerPrint.ReadOnly = true;
-            this._dealerPrint.Size = new System.Drawing.Size(163, 120);
-            this._dealerPrint.TabIndex = 8;
-            // 
             // _betButton
             // 
             this._betButton.Location = new System.Drawing.Point(228, 260);
@@ -125,7 +99,7 @@
             // 
             // _pickCard
             // 
-            this._pickCard.Location = new System.Drawing.Point(231, 376);
+            this._pickCard.Location = new System.Drawing.Point(47, 531);
             this._pickCard.Name = "_pickCard";
             this._pickCard.Size = new System.Drawing.Size(175, 23);
             this._pickCard.TabIndex = 11;
@@ -152,7 +126,7 @@
             // 
             // _stand
             // 
-            this._stand.Location = new System.Drawing.Point(231, 405);
+            this._stand.Location = new System.Drawing.Point(228, 531);
             this._stand.Name = "_stand";
             this._stand.Size = new System.Drawing.Size(175, 23);
             this._stand.TabIndex = 14;
@@ -194,72 +168,24 @@
             this._textBoxDealerPoints.Size = new System.Drawing.Size(74, 22);
             this._textBoxDealerPoints.TabIndex = 19;
             // 
-            // _playerPrintsCard2
-            // 
-            this._playerPrintsCard2.Location = new System.Drawing.Point(97, 437);
-            this._playerPrintsCard2.Multiline = true;
-            this._playerPrintsCard2.Name = "_playerPrintsCard2";
-            this._playerPrintsCard2.ReadOnly = true;
-            this._playerPrintsCard2.Size = new System.Drawing.Size(44, 60);
-            this._playerPrintsCard2.TabIndex = 20;
-            // 
-            // _playerPrintsCard5
-            // 
-            this._playerPrintsCard5.Location = new System.Drawing.Point(97, 503);
-            this._playerPrintsCard5.Multiline = true;
-            this._playerPrintsCard5.Name = "_playerPrintsCard5";
-            this._playerPrintsCard5.Size = new System.Drawing.Size(44, 60);
-            this._playerPrintsCard5.TabIndex = 21;
-            // 
-            // _playerPrintsCard4
-            // 
-            this._playerPrintsCard4.Location = new System.Drawing.Point(47, 503);
-            this._playerPrintsCard4.Multiline = true;
-            this._playerPrintsCard4.Name = "_playerPrintsCard4";
-            this._playerPrintsCard4.Size = new System.Drawing.Size(44, 60);
-            this._playerPrintsCard4.TabIndex = 22;
-            // 
-            // _playerPrintsCard1
-            // 
-            this._playerPrintsCard1.Location = new System.Drawing.Point(47, 437);
-            this._playerPrintsCard1.Multiline = true;
-            this._playerPrintsCard1.Name = "_playerPrintsCard1";
-            this._playerPrintsCard1.ReadOnly = true;
-            this._playerPrintsCard1.Size = new System.Drawing.Size(44, 60);
-            this._playerPrintsCard1.TabIndex = 23;
-            // 
-            // _playerPrintsCard6
-            // 
-            this._playerPrintsCard6.Location = new System.Drawing.Point(147, 503);
-            this._playerPrintsCard6.Multiline = true;
-            this._playerPrintsCard6.Name = "_playerPrintsCard6";
-            this._playerPrintsCard6.Size = new System.Drawing.Size(44, 60);
-            this._playerPrintsCard6.TabIndex = 24;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(730, 433);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(47, 64);
-            this.textBox5.TabIndex = 25;
-            // 
-            // _playerPrintsCard3
-            // 
-            this._playerPrintsCard3.Location = new System.Drawing.Point(147, 437);
-            this._playerPrintsCard3.Multiline = true;
-            this._playerPrintsCard3.Name = "_playerPrintsCard3";
-            this._playerPrintsCard3.Size = new System.Drawing.Size(44, 60);
-            this._playerPrintsCard3.TabIndex = 26;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(267, 33);
+            this.label1.Location = new System.Drawing.Point(44, 431);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "label1";
+            this.label1.Size = new System.Drawing.Size(12, 17);
+            this.label1.TabIndex = 20;
+            this.label1.Text = ",";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(792, 431);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label2.Size = new System.Drawing.Size(12, 17);
+            this.label2.TabIndex = 21;
+            this.label2.Text = ".";
             // 
             // Form1
             // 
@@ -267,14 +193,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1105, 702);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this._playerPrintsCard3);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this._playerPrintsCard6);
-            this.Controls.Add(this._playerPrintsCard1);
-            this.Controls.Add(this._playerPrintsCard4);
-            this.Controls.Add(this._playerPrintsCard5);
-            this.Controls.Add(this._playerPrintsCard2);
             this.Controls.Add(this._textBoxDealerPoints);
             this.Controls.Add(this._dealerTotal);
             this.Controls.Add(this._playerTotal);
@@ -285,8 +205,6 @@
             this.Controls.Add(this._pickCard);
             this.Controls.Add(this._betReadBox);
             this.Controls.Add(this._betButton);
-            this.Controls.Add(this._dealerPrint);
-            this.Controls.Add(this._playerPrintCard1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this._exitBotton);
@@ -308,8 +226,6 @@
         private System.Windows.Forms.Button _exitBotton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox _playerPrintCard1;
-        private System.Windows.Forms.TextBox _dealerPrint;
         private System.Windows.Forms.Button _betButton;
         private System.Windows.Forms.TextBox _betReadBox;
         private System.Windows.Forms.Button _pickCard;
@@ -320,14 +236,8 @@
         private System.Windows.Forms.Label _dealerTotal;
         private System.Windows.Forms.TextBox _textBoxDealerPoints;
         public System.Windows.Forms.TextBox textBoxWallet;
-        private System.Windows.Forms.TextBox _playerPrintsCard2;
-        private System.Windows.Forms.TextBox _playerPrintsCard5;
-        private System.Windows.Forms.TextBox _playerPrintsCard4;
-        private System.Windows.Forms.TextBox _playerPrintsCard1;
-        private System.Windows.Forms.TextBox _playerPrintsCard6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox _playerPrintsCard3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
