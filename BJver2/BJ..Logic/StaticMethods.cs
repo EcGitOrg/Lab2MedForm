@@ -83,23 +83,70 @@ namespace BJ
         public static string GetFormCard(Card card)
         {
             string output = "";
-            if (card._Color == "Heart") { } // 🂱🂲🂳
-
-            if (card._Color == "Dimond") { } //
-
-            if (card._Color == "Spade") { }//
-
-            if (card._Color == "Clubs") { }//
-
-
-
-
-
-
-
-
-
-
+            if (card._Color == "Heart")// 🂱🂲🂳🂴🂵🂶🂷🂸🂹🂺🂻🂽🂾
+            {
+                if ( card.Type == "Ace") { return "🂱"; }
+                if (card.Type == "Two") { return "🂲"; }
+                if (card.Type == "Three") { return "🂳"; }
+                if (card.Type == "Four") { return "🂴"; }
+                if (card.Type == "Five") { return "🂵"; }
+                if (card.Type == "Six") { return "🂶"; }
+                if (card.Type == "Seven") { return "🂷"; }
+                if (card.Type == "Eight") { return "🂸"; }
+                if (card.Type == "Nine") { return "🂹"; }
+                if (card.Type == "Ten") { return "🂺"; }
+                if (card.Type == "Knight") { return "🂻"; }
+                if (card.Type == "Queen") { return "🂽"; }
+                if (card.Type == "King") { return "🂾"; }
+            } 
+            if (card._Color == "Dimond")
+            {
+                if (card.Type == "Ace") { return ""; }
+                if (card.Type == "Two") { return ""; }
+                if (card.Type == "Three") { return ""; }
+                if (card.Type == "Four") { return ""; }
+                if (card.Type == "Five") { return ""; }
+                if (card.Type == "Six") { return ""; }
+                if (card.Type == "Seven") { return ""; }
+                if (card.Type == "Eight") { return ""; }
+                if (card.Type == "Nine") { return ""; }
+                if (card.Type == "Ten") { return ""; }
+                if (card.Type == "Knight") { return ""; }
+                if (card.Type == "Queen") { return ""; }
+                if (card.Type == "King") { return ""; }
+            } 
+            if (card._Color == "Spade")
+            {
+                if (card.Type == "Ace") { return ""; }
+                if (card.Type == "Two") { return ""; }
+                if (card.Type == "Three") { return ""; }
+                if (card.Type == "Four") { return ""; }
+                if (card.Type == "Five") { return ""; }
+                if (card.Type == "Six") { return ""; }
+                if (card.Type == "Seven") { return ""; }
+                if (card.Type == "Eight") { return ""; }
+                if (card.Type == "Nine") { return ""; }
+                if (card.Type == "Ten") { return ""; }
+                if (card.Type == "Knight") { return ""; }
+                if (card.Type == "Queen") { return ""; }
+                if (card.Type == "King") { return ""; }
+            }
+            if (card._Color == "Clubs")
+            {
+                if (card.Type == "Ace") { return ""; }
+                if (card.Type == "Two") { return ""; }
+                if (card.Type == "Three") { return ""; }
+                if (card.Type == "Four") { return ""; }
+                if (card.Type == "Five") { return ""; }
+                if (card.Type == "Six") { return ""; }
+                if (card.Type == "Seven") { return ""; }
+                if (card.Type == "Eight") { return ""; }
+                if (card.Type == "Nine") { return ""; }
+                if (card.Type == "Ten") { return ""; }
+                if (card.Type == "Knight") { return ""; }
+                if (card.Type == "Queen") { return ""; }
+                if (card.Type == "King") { return ""; }
+            }
             return output;
         }
         
