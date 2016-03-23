@@ -39,8 +39,6 @@ namespace BJ
           
             label1.BackColor = Color.Transparent;
             label2.BackColor = Color.Transparent;
-
-            //_exitBotton.BackColor
             _exitBotton.BackColor = Color.Transparent;
         }
 
