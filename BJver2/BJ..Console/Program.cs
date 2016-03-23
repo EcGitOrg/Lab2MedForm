@@ -12,6 +12,9 @@ namespace BJ
         {
             GameFlow gameFOlow = new GameFlow();
             gameFOlow.RunGame();
+
+            // 🂡 🂢 🂣 🂤	🂥 🂦 🂧 🂨 🂩 🂪 🂫 🂭 🂮
+            // 🃑 🃒 🃓 🃔 🃕 🃖 🃗 🃘 🃙 🃚 🃛 🃝 🃞
         }
     }
 }

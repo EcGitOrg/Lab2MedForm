@@ -8,7 +8,7 @@ namespace BJ
 {
    public class User
     {
-        public virtual string GetCardText()
+        public virtual string GetCardText( )
         {
             string output ="";
             return output;
