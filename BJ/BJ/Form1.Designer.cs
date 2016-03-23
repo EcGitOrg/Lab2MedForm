@@ -189,9 +189,12 @@
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1105, 702);
+            this.ClientSize = new System.Drawing.Size(1111, 706);
             this.Controls.Add(this._textBoxDealerPoints);
             this.Controls.Add(this._dealerTotal);
             this.Controls.Add(this._playerTotal);

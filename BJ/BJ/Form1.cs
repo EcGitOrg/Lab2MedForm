@@ -18,9 +18,11 @@ namespace BJ
         Dealer dealer = new Dealer();
         int bet = 0;
         bool running = false;
+        bool ValidBet = false;
         int DealerTotalCardValue = 0;
         int PlayerCardValue = 0;
-      
+
+
 
         public Form1()
         {
@@ -33,7 +35,7 @@ namespace BJ
             _textBoxPlayerPoints.Text = "0";
             textBoxWallet.Text = player.balance.ToString();
             dealer.CheckActiveDeck(deck);
-           
+
         }
 
         private void _betButton_Click(object sender, EventArgs e)
@@ -46,6 +48,7 @@ namespace BJ
 
             if (!running && bet > 0 && bet <= player.balance)
             {
+                ValidBet = true;
                 dealer.CheckActiveDeck(deck);
 
                 player.balance -= bet;
@@ -67,19 +70,19 @@ namespace BJ
 
         private void _pickCard_Click(object sender, EventArgs e)
         {
-            if (bet > 0 && bet < player.balance)
+            if (ValidBet)
             {
                 player.GetCard(dealer.GiveCard());
                 Update();
                 PlayerCardValue = StaticMethods.CountValue(player.ShowPlayerHand());
-                if (PlayerCardValue > 21) { Loose(); } // dealerwin
+                if (PlayerCardValue > 21) { Loose(); }
             }
         }
-  
+
 
         private void _stand_Click(object sender, EventArgs e)
         {
-            if (DealerTotalCardValue < 17 && bet > 0 && bet < player.balance)
+            if (DealerTotalCardValue < 17 && ValidBet)
             {
                 DealerTotalCardValue = 0;
                 while (Rules.GiveDealerCard(DealerTotalCardValue))
@@ -92,10 +95,10 @@ namespace BJ
                 if (!Rules.NotOver21(DealerTotalCardValue))
                 {
                     player.balance += bet;
-                    player.balance += bet; 
+                    player.balance += bet;
                     Win();
                 }
-               else if (StaticMethods.CountValue(player.PlayerHand) > StaticMethods.CountValue(dealer.DealerHand))
+                else if (StaticMethods.CountValue(player.PlayerHand) > StaticMethods.CountValue(dealer.DealerHand))
                 {
                     player.balance += bet;
                     player.balance += bet;
@@ -105,12 +108,13 @@ namespace BJ
                 {
                     Loose();
                 }
-                
+
             }
             Update();
         }
         private void Loose()
-        {       
+        {
+
             PlayerCardValue = 0;
             DealerTotalCardValue = 0;
             MessageBox.Show("YOU LOOSE!!"); bet = 0; running = false; ;
@@ -118,10 +122,12 @@ namespace BJ
             dealer.DealerHand.Clear();
             _betReadBox.Text = "";
             Update();
-            if(player.balance < 1) { MessageBox.Show("OUT OF CASH!!");Environment.Exit(-1); }
+            if (player.balance < 1) { MessageBox.Show("OUT OF CASH!!"); Environment.Exit(-1); }
         }
         private void Win()
         {
+
+
             PlayerCardValue = 0;
             DealerTotalCardValue = 0;
             MessageBox.Show("YOU WIN!!");
