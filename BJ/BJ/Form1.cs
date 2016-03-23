@@ -36,7 +36,19 @@ namespace BJ
             _textBoxPlayerPoints.Text = "0";
             textBoxWallet.Text = player.balance.ToString();
             dealer.CheckActiveDeck(deck);
-           
+
+            /*
+
+              public Form1() {
+        InitializeComponent();
+        var pos = this.PointToScreen(label1.Location);
+        pos = pictureBox1.PointToClient(pos);
+        label1.Parent = pictureBox1;
+        label1.Location = pos;
+        label1.BackColor = Color.Transparent;
+            }
+            */
+
 
         }
 
