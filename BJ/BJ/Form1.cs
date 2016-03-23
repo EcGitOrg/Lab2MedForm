@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.Design;
 
 namespace BJ
 {
@@ -35,6 +36,7 @@ namespace BJ
             _textBoxPlayerPoints.Text = "0";
             textBoxWallet.Text = player.balance.ToString();
             dealer.CheckActiveDeck(deck);
+           
 
         }
 

@@ -44,6 +44,7 @@
             this._playerTotal = new System.Windows.Forms.Label();
             this._dealerTotal = new System.Windows.Forms.Label();
             this._textBoxDealerPoints = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -186,6 +187,16 @@
             this._textBoxDealerPoints.Size = new System.Drawing.Size(74, 22);
             this._textBoxDealerPoints.TabIndex = 19;
             // 
+            // label1
+            // 
+            this.label1.AccessibleName = " _LabelPlayerBalance.";
+            this.label1.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
+            this.label1.Location = new System.Drawing.Point(478, 267);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(150, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "_LabelPlayerBalance";
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -195,6 +206,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1111, 706);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this._textBoxDealerPoints);
             this.Controls.Add(this._dealerTotal);
             this.Controls.Add(this._playerTotal);
@@ -240,6 +252,7 @@
         private System.Windows.Forms.Label _dealerTotal;
         private System.Windows.Forms.TextBox _textBoxDealerPoints;
         public System.Windows.Forms.TextBox textBoxWallet;
+        private System.Windows.Forms.Label label1;
     }
 }
 
