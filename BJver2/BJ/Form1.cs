@@ -182,6 +182,29 @@ namespace BJ
             return Environment.NewLine;
         }
 
-   
+        private void bid1_Click(object sender, EventArgs e)
+        {
+            bet += 1;
+        }
+
+        private void bid5_Click(object sender, EventArgs e)
+        {
+            bet += 5;
+        }
+
+        private void bid10_Click(object sender, EventArgs e)
+        {
+            bet += 10;
+        }
+
+        private void bid25_Click(object sender, EventArgs e)
+        {
+            bet += 25;
+        }
+
+        private void bid100_Click(object sender, EventArgs e)
+        {
+            bet += 100;
+        }
     }
 }

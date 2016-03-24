@@ -46,7 +46,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.bid1 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.bid5 = new System.Windows.Forms.Button();
+            this.bid10 = new System.Windows.Forms.Button();
+            this.bid25 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.bid100 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -108,7 +112,7 @@
             // 
             // _pickCard
             // 
-            this._pickCard.Location = new System.Drawing.Point(285, 612);
+            this._pickCard.Location = new System.Drawing.Point(298, 629);
             this._pickCard.Name = "_pickCard";
             this._pickCard.Size = new System.Drawing.Size(175, 23);
             this._pickCard.TabIndex = 11;
@@ -135,7 +139,7 @@
             // 
             // _stand
             // 
-            this._stand.Location = new System.Drawing.Point(285, 641);
+            this._stand.Location = new System.Drawing.Point(542, 624);
             this._stand.Name = "_stand";
             this._stand.Size = new System.Drawing.Size(175, 23);
             this._stand.TabIndex = 14;
@@ -211,21 +215,62 @@
             // 
             // bid1
             // 
-            this.bid1.Location = new System.Drawing.Point(12, 577);
+            this.bid1.Location = new System.Drawing.Point(12, 576);
             this.bid1.Name = "bid1";
-            this.bid1.Size = new System.Drawing.Size(42, 42);
+            this.bid1.Size = new System.Drawing.Size(42, 43);
             this.bid1.TabIndex = 23;
             this.bid1.UseVisualStyleBackColor = false;
             this.bid1.Visible = false;
+            this.bid1.Click += new System.EventHandler(this.bid1_Click);
             // 
-            // button1
+            // bid5
             // 
-            this.button1.Location = new System.Drawing.Point(60, 603);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(44, 40);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.bid5.Location = new System.Drawing.Point(69, 604);
+            this.bid5.Name = "bid5";
+            this.bid5.Size = new System.Drawing.Size(37, 38);
+            this.bid5.TabIndex = 24;
+            this.bid5.UseVisualStyleBackColor = true;
+            this.bid5.Visible = false;
+            this.bid5.Click += new System.EventHandler(this.bid5_Click);
+            // 
+            // bid10
+            // 
+            this.bid10.Location = new System.Drawing.Point(112, 631);
+            this.bid10.Name = "bid10";
+            this.bid10.Size = new System.Drawing.Size(38, 37);
+            this.bid10.TabIndex = 25;
+            this.bid10.UseVisualStyleBackColor = true;
+            this.bid10.Visible = false;
+            this.bid10.Click += new System.EventHandler(this.bid10_Click);
+            // 
+            // bid25
+            // 
+            this.bid25.Location = new System.Drawing.Point(167, 654);
+            this.bid25.Name = "bid25";
+            this.bid25.Size = new System.Drawing.Size(38, 39);
+            this.bid25.TabIndex = 26;
+            this.bid25.UseVisualStyleBackColor = true;
+            this.bid25.Visible = false;
+            this.bid25.Click += new System.EventHandler(this.bid25_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(757, 629);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // bid100
+            // 
+            this.bid100.Location = new System.Drawing.Point(220, 666);
+            this.bid100.Name = "bid100";
+            this.bid100.Size = new System.Drawing.Size(42, 38);
+            this.bid100.TabIndex = 28;
+            this.bid100.UseVisualStyleBackColor = true;
+            this.bid100.Visible = false;
+            this.bid100.Click += new System.EventHandler(this.bid100_Click);
             // 
             // Form1
             // 
@@ -233,7 +278,11 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1123, 705);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bid100);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.bid25);
+            this.Controls.Add(this.bid10);
+            this.Controls.Add(this.bid5);
             this.Controls.Add(this.bid1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -284,7 +333,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button bid1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bid5;
+        private System.Windows.Forms.Button bid10;
+        private System.Windows.Forms.Button bid25;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bid100;
     }
 }
 
