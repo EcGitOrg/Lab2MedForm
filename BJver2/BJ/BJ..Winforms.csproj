@@ -181,6 +181,7 @@
     <Content Include="Resources\Cards\red_joker.jpg.png" />
     <Content Include="Resources\exit-button2jpg.jpg" />
     <Content Include="Resources\EXIT.jpg" />
+    <Content Include="Resources\_Button.jpg" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

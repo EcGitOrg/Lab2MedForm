@@ -49,7 +49,6 @@
             this.bid5 = new System.Windows.Forms.Button();
             this.bid10 = new System.Windows.Forms.Button();
             this.bid25 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.bid100 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -95,9 +94,10 @@
             // 
             // _betButton
             // 
+            this._betButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this._betButton.Location = new System.Drawing.Point(228, 260);
             this._betButton.Name = "_betButton";
-            this._betButton.Size = new System.Drawing.Size(75, 23);
+            this._betButton.Size = new System.Drawing.Size(75, 51);
             this._betButton.TabIndex = 9;
             this._betButton.Text = "Bet";
             this._betButton.UseVisualStyleBackColor = true;
@@ -139,11 +139,13 @@
             // 
             // _stand
             // 
-            this._stand.Location = new System.Drawing.Point(542, 624);
+            this._stand.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this._stand.Image = ((System.Drawing.Image)(resources.GetObject("_stand.Image")));
+            this._stand.ImageKey = "(none)";
+            this._stand.Location = new System.Drawing.Point(577, 557);
             this._stand.Name = "_stand";
-            this._stand.Size = new System.Drawing.Size(175, 23);
+            this._stand.Size = new System.Drawing.Size(166, 85);
             this._stand.TabIndex = 14;
-            this._stand.Text = "Stand";
             this._stand.UseVisualStyleBackColor = true;
             this._stand.Click += new System.EventHandler(this._stand_Click);
             // 
@@ -253,15 +255,6 @@
             this.bid25.Visible = false;
             this.bid25.Click += new System.EventHandler(this.bid25_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(757, 629);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // bid100
             // 
             this.bid100.Location = new System.Drawing.Point(220, 666);
@@ -279,7 +272,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1123, 705);
             this.Controls.Add(this.bid100);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.bid25);
             this.Controls.Add(this.bid10);
             this.Controls.Add(this.bid5);
@@ -336,7 +328,6 @@
         private System.Windows.Forms.Button bid5;
         private System.Windows.Forms.Button bid10;
         private System.Windows.Forms.Button bid25;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button bid100;
     }
 }
