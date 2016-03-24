@@ -184,27 +184,27 @@ namespace BJ
 
         private void bid1_Click(object sender, EventArgs e)
         {
-            bet += 1;
+            bet += 1; Update();
         }
 
         private void bid5_Click(object sender, EventArgs e)
         {
-            bet += 5;
+            bet += 5; Update();
         }
 
         private void bid10_Click(object sender, EventArgs e)
         {
-            bet += 10;
+            bet += 10; Update();
         }
 
         private void bid25_Click(object sender, EventArgs e)
         {
-            bet += 25;
+            bet += 25; Update();
         }
 
         private void bid100_Click(object sender, EventArgs e)
         {
-            bet += 100;
+            bet += 100; Update();
         }
     }
 }
