@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BJ
 {
-    static class GamePresentation
+    static class Printer
     {
         /// <summary>
         /// Prints The cars atributes in one list
@@ -24,6 +24,32 @@ namespace BJ
 
                 CardNr++;
             }
+        }
+        internal static int AskBet(Player player)
+        {
+            int bet = 0;
+            while (true)
+            {                    
+                Console.WriteLine($"Saldo:{player.balance}");
+                Console.WriteLine("How mutch you wanna bet?");
+                int.TryParse(Console.ReadLine(), out bet);
+                if (bet > player.balance)
+                {
+                    Console.Clear();
+                    LOGG();       
+                    Console.WriteLine("You dont have so mutch CASH!!\nTry agan. . .\n");
+                }            
+                else if(bet == 0)
+                {
+                    Console.Clear();
+                    LOGG();
+                    Console.WriteLine("I dont understand you!\nTry again. . .\n");
+                }
+                else if (bet > 0)
+                {
+                    return bet;
+                }
+            }        
         }
         /// <summary>
         /// Prints totalvalue on cards of one list
@@ -61,7 +87,6 @@ namespace BJ
 
 
         }
-
         internal static void PressForNextCard()
         {
             Console.WriteLine("Press a key to see next card");
@@ -69,9 +94,8 @@ namespace BJ
             Console.Clear();
 
         }
-
         /// <summary>
-        /// Prints both hands
+        /// Prints the game
         /// </summary>
         /// <param name="Player"></param>
         /// <param name="Dealer"></param>
@@ -82,30 +106,28 @@ namespace BJ
             Console.Clear();
             LOGG();
             Console.WriteLine("        D e a l e r   H a n d");
-            GamePresentation.PrintCardHand(Dealer);
-            GamePresentation.PrintTotalValue(Dealer);
+            Printer.PrintCardHand(Dealer);
+            Printer.PrintTotalValue(Dealer);
             Console.WriteLine("\n");
             Console.WriteLine("        P l a y e r   H a n d");
             Console.WriteLine("        $$ " + PlayerBalance + " $$ Bet :" + bet + " $$");
-            GamePresentation.PrintCardHand(PlayerList);
-            GamePresentation.PrintTotalValue(PlayerList);
+            Printer.PrintCardHand(PlayerList);
+            Printer.PrintTotalValue(PlayerList);
             Console.Write("\n");
             if (Splitt)
             {
                 Console.WriteLine("\n\n        S p l i t t   H a n d");            
-                GamePresentation.PrintCardHand(player.SplittHand);
-                GamePresentation.PrintTotalValue(player.SplittHand);
+                Printer.PrintCardHand(player.SplittHand);
+                Printer.PrintTotalValue(player.SplittHand);
             }
             Console.WriteLine("\n\n");
            
         }
-
         internal static void ToLittleCashToSplitt()
         {
             Console.WriteLine("You dont afford to splitt your cards. . .\nPress a key to continue . . .");
             Console.ReadKey();
         }
-
         /// <summary>
         /// Prints a list with all cards
         /// </summary>
@@ -124,23 +146,7 @@ namespace BJ
                 Console.WriteLine("");
                 x++;
             }
-        }
-        public static void ControlCheck(Dealer dealer, Deck deck)
-        {
-            Console.Clear();
-            Console.WriteLine("Write \"check\" if you wanna see the decks. . .\nOr press anny key to continue to game. ");
-            string check = Console.ReadLine();
-            if (check == "check")
-            {
-
-                Console.WriteLine("Sorted Basic deck");
-                GamePresentation.PrintADeck(deck.GiveDeck());
-                Console.WriteLine("\n\nDealer playing Deck");
-                GamePresentation.PrintADeck(dealer.GiveActiveDeck());
-                Console.ReadKey();
-            }
-            Console.Clear();
-        }
+        }    
         public static bool AskSplitt(Dealer dealer,Player player)
         {
 
@@ -165,8 +171,8 @@ namespace BJ
             if (!win) { Console.ForegroundColor = ConsoleColor.Yellow; }
             Console.Write("        D e a l e r   H a n d");    
             Console.WriteLine();
-            GamePresentation.PrintCardHand(Dealer);
-            GamePresentation.PrintTotalValue(Dealer);
+            Printer.PrintCardHand(Dealer);
+            Printer.PrintTotalValue(Dealer);
             Console.ForegroundColor = ConsoleColor.White;
 
             Console.WriteLine("\n");
@@ -175,8 +181,8 @@ namespace BJ
             Console.Write("        P l a y e r   H a n d");  
             Console.WriteLine();
             Console.WriteLine("        $$ " + PlayerBalance + " $$ Bet :" + bet + " $$");
-            GamePresentation.PrintCardHand(PlayerList);
-            GamePresentation.PrintTotalValue(PlayerList);
+            Printer.PrintCardHand(PlayerList);
+            Printer.PrintTotalValue(PlayerList);
             Console.ForegroundColor = ConsoleColor.White;
 
             Console.Write("\n\n");
@@ -187,8 +193,8 @@ namespace BJ
                 if (winSplit) { Console.ForegroundColor = ConsoleColor.Yellow; }
                 Console.Write("\n\n        S p l i t t   H a n d"); 
                 Console.WriteLine();
-                GamePresentation.PrintCardHand(player.SplittHand);
-                GamePresentation.PrintTotalValue(player.SplittHand);
+                Printer.PrintCardHand(player.SplittHand);
+                Printer.PrintTotalValue(player.SplittHand);
                 Console.ForegroundColor = ConsoleColor.White;
             }
            
@@ -200,6 +206,29 @@ namespace BJ
             Console.ReadKey();
             Console.Clear();
         }
+        public static void HitMePrint(Player player,Dealer dealer,bool split,int bet)
+        {
+            bool go = true;       
+                 
+            while (go)
+            {
+                Console.WriteLine("Want a new card? y/n");
+                ConsoleKeyInfo key;
+                key = Console.ReadKey(true);
+                switch (key.KeyChar)
+                {
+                    case 'y':
+                        go = player.HitMe(player, dealer, split); // Gives a card and returns if true if total value is under 21
 
+                        break;
+                    case 'n':
+                        go = false;
+                        break;
+                    default:
+                        break;
+                }
+                PrintGame(player.PlayerHand, dealer.DealerHand, bet, player.balance, split, player); // refresh game
+            }
+        }
     }
 }

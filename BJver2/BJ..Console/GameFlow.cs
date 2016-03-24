@@ -11,10 +11,10 @@ namespace BJ
         Deck deck = new Deck();
         Player player = new Player();
         Dealer dealer = new Dealer();
-        bool playing = true;
+        bool gameOver = false;
         bool win = true;
-       
-      
+
+
 
         public GameFlow()
         { }
@@ -33,34 +33,30 @@ namespace BJ
             bool split = false;
             bool IWantSplit = false;
 
+            Console.Clear();
             dealer.CheckActiveDeck(deck);
-            GamePresentation.LOGG();
-            GamePresentation.ControlCheck(dealer, deck);
+            Printer.LOGG();
 
-            dealer.ClearHand();  //Clear both hands
-            player.ClearHand();
 
-            int bet = 0; // <---fel
-            //       int bet = player.Bet(); // Player set bet
+            int bet = Printer.AskBet(player); // Get player bet
 
-            dealer.GetCardToDealer(); // Give cards to dealer and player
+            dealer.GiveCards(player, dealer); // Clear hands and give start cards
+            #region SplittTest
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //int y = 1;   ///////////////////////////////////////////// TRY SPLITT /////////////////////////////////////////////////////
+            //int x = 1;  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //string CardType = StaticMethods.GetType(x);  //////////////////////////////////////////////////////////////////////////////
+            //player.GetCard(new Card(value: 10, aceValue: 10, color: StaticMethods.ReturnType(y), type: CardType));/////////////////////
+            //player.GetCard(new Card(value: 10, aceValue: 10, color: StaticMethods.ReturnType(y), type: CardType));/////////////////////
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            //player.GetCard(dealer.GiveCard());
-            //player.GetCard(dealer.GiveCard());
-
-            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            int y = 1;   ///////////////////////////////////////////// TRY SPLITT /////////////////////////////////////////////////////
-            int x = 1;  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            string CardType = StaticMethods.GetType(x);  //////////////////////////////////////////////////////////////////////////////
-            player.GetCard(new Card(value: 10, aceValue: 10, color: StaticMethods.ReturnType(y), type: CardType));/////////////////////
-            player.GetCard(new Card(value: 10, aceValue: 10, color: StaticMethods.ReturnType(y), type: CardType));/////////////////////
-            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-            GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance, split, player);
-          
-            split = Rules.SplittPosible(player.ShowPlayerHand(),player,bet);
-            
-            if (split) { IWantSplit = GamePresentation.AskSplitt(dealer, player); }
+            #endregion
+            Printer.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance, split, player);
+            split = Rules.SplittPosible(player.ShowPlayerHand(), player, bet);
+            if (split)
+            {
+                IWantSplit = Printer.AskSplitt(dealer, player);
+            }
             if (IWantSplit)
             {
                 dealer.SplittPlayerCards(player);
@@ -70,22 +66,17 @@ namespace BJ
             }
             else
             {
-
-                //       player.HitMe(player, dealer, bet,split); //Give player all his cards
+                Printer.HitMePrint(player, dealer, split, bet); // Give all players card
             }
-
-            GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance,split, player);
-
-
             if (Rules.NotOver21(StaticMethods.CountValue(player.ShowPlayerHand())))
             {
-                GamePresentation.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance,split,player);
+                Printer.PrintGame(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance, split, player);
 
-                dealer.DealerGetAllHisCards(player, dealer, bet,split); // Give dealer all his cards
+                dealer.DealerGetAllHisCards(player, dealer, bet, split); // Give dealer all his cards
 
                 if (Rules.NotOver21(StaticMethods.CountValue(dealer.ShowDealerHand())) || Rules.NotOver21(StaticMethods.CountAceValue(dealer.ShowDealerHand())))
                 {
-                    
+
 
                     DealerValue = StaticMethods.CountValue(dealer.ShowDealerHand());
                     DealerAceValue = StaticMethods.CountAceValue(dealer.ShowDealerHand());
@@ -102,9 +93,9 @@ namespace BJ
                     int DealerwinValue = 0;
 
 
-                    if (PlayerAceValue < 22) { PlayerwinValue = PlayerAceValue; } else if(playerValue<22){ PlayerwinValue = playerValue; } else { PlayerwinValue = 0; }
-                    if (DealerAceValue < 22) { DealerwinValue = DealerAceValue; } else if (DealerValue<22) { DealerwinValue = DealerValue; } else { DealerwinValue = 0; }
-                    if (SplitAceValue < 22) { SplitwinValue = SplitAceValue; }else if (SplitValue < 22){ SplitwinValue = SplitValue; } else { SplitwinValue = 0; }
+                    if (PlayerAceValue < 22) { PlayerwinValue = PlayerAceValue; } else if (playerValue < 22) { PlayerwinValue = playerValue; } else { PlayerwinValue = 0; }
+                    if (DealerAceValue < 22) { DealerwinValue = DealerAceValue; } else if (DealerValue < 22) { DealerwinValue = DealerValue; } else { DealerwinValue = 0; }
+                    if (SplitAceValue < 22) { SplitwinValue = SplitAceValue; } else if (SplitValue < 22) { SplitwinValue = SplitValue; } else { SplitwinValue = 0; }
 
                     win = Rules.PlayerWin(PlayerwinValue, DealerwinValue);
                     if (IWantSplit)
@@ -123,14 +114,14 @@ namespace BJ
             }
             else { win = false; }
 
-          
-            Rules.WinManager(win,winSplit, bet, player,IWantSplit);
 
-            GamePresentation.EndMsg(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance, split, player,win,winSplit);
+            Rules.WinManager(win, winSplit, bet, player, IWantSplit);
+
+            Printer.EndMsg(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance, split, player, win, winSplit);
 
 
-            if (player.balance < 1) { playing = false; GamePresentation.GameOver(); }
-            return playing;
+            if (player.balance < 1) { gameOver = true; Printer.GameOver(); }
+            return gameOver;
         }
     }
 

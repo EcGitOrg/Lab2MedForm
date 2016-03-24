@@ -10,9 +10,12 @@ namespace BJ
     {
         static void Main(string[] args)
         {
+            bool gameover = false;
             GameFlow gameFOlow = new GameFlow();
-            gameFOlow.RunGame();
-
+            while (!gameover)
+            {
+                gameover = gameFOlow.RunGame();
+            }
             // 🂡 🂢 🂣 🂤	🂥 🂦 🂧 🂨 🂩 🂪 🂫 🂭 🂮
             // 🃑 🃒 🃓 🃔 🃕 🃖 🃗 🃘 🃙 🃚 🃛 🃝 🃞
             // 🃁 🃂 🃃 🃄 🃅 🃆 🃇 🃈 🃉 🃊 🃋 🃍 🃎

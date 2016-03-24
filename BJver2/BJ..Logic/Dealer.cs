@@ -10,8 +10,6 @@ namespace BJ
     {
         List<Card> ActiveDeck;
        public List<Card> DealerHand;
-
-
         public Dealer()
         {
 
@@ -39,7 +37,6 @@ namespace BJ
             int count = ActiveDeck.Count;
             return count;
         }
-
         public void CheckActiveDeck(Deck deck)
         {
             if (CountCardsInActiveDeck() < 53)   // Checking if dealer have more then 53 cards in deck
@@ -54,7 +51,6 @@ namespace BJ
                 }
             }
         }
-
         /// <summary>
         /// Sends a sorted deck with 53 cards
         /// </summary>
@@ -66,7 +62,6 @@ namespace BJ
                 ActiveDeck.Add(item);
             }
         }
-
         public void DealerGetAllHisCards(Player player, Dealer dealer, int bet, bool Splitt)
         {
             bool gogo = true;
@@ -88,7 +83,6 @@ namespace BJ
 
             }
         }
-
         public void GiveCards(Player player, Dealer dealer)
         {
             player.PlayerHand.Clear();
@@ -97,7 +91,6 @@ namespace BJ
             player.GetCard(dealer.GiveCard());
             player.GetCard(dealer.GiveCard());
         }
-
         /// <summary>
         /// Shuffles Active deck 10000 times
         /// </summary>
@@ -158,7 +151,6 @@ namespace BJ
         {
             return ActiveDeck;
         }
-
         public void SplittPlayerCards(Player player)
         {
             player.SplittHand.Add(player.PlayerHand[0]);

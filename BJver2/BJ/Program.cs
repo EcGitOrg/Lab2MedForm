@@ -18,13 +18,7 @@ namespace BJ
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
-            //GameFlow gamelogics = new GameFlow();
-            //bool playing = true;
-
-            //while (playing)
-            //{
-            //    playing = gamelogics.RunGame();
-            //}
+        
         }
     }
 }

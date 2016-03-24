@@ -11,15 +11,14 @@ namespace BJ
         public List<Card> PlayerHand;
         public List<Card> SplittHand;
         public int balance { get; set; }
-
         public Player()
         {
             this.balance = 100;
             this.PlayerHand = new List<Card>();
             this.SplittHand = new List<Card>();
         }
-        public override string GetCardText( )
-        {      
+        public override string GetCardText()
+        {
             string outPut = "";
             int nr = 1;
             foreach (var item in PlayerHand)
@@ -27,14 +26,13 @@ namespace BJ
                 outPut += $"Card {nr}:{item.Type}  {item._Color}  {item._Value}{Environment.NewLine}";
                 nr++;
             }
-        
+
             return outPut;
         }
-        public Card  GetCard(int index)
-        {     
+        public Card GetCard(int index)
+        {
             return PlayerHand[index];
         }
-
         /// <summary>
         /// Adds a card to player hand
         /// </summary>
@@ -43,7 +41,6 @@ namespace BJ
         {
             PlayerHand.Add(newCard);
         }
-
         //public bool Pass() 
         //{
         //    return true;
@@ -52,10 +49,10 @@ namespace BJ
         /// Asks for a bet from user- and returns it
         /// </summary>
         /// <returns>int bet</returns>
-        public bool Bet(int bet,Player player)
-        {               
-          if (bet < 0) { return false; }
-          if (bet > player.balance) { return false; }
+        public bool Bet(int bet, Player player)
+        {
+            if (bet < 0) { return false; }
+            if (bet > player.balance) { return false; }
 
 
             return true;
@@ -68,7 +65,6 @@ namespace BJ
         {
             return PlayerHand;
         }
-
         /// <summary>
         /// Counts the number of cards there is in the list
         /// </summary>
@@ -91,7 +87,15 @@ namespace BJ
             PlayerHand.RemoveRange(0, PlayerHand.Count);
             SplittHand.RemoveRange(0, SplittHand.Count);
         }
-       
-       
+        public bool HitMe(Player player, Dealer dealer , bool split)
+        {
+            player.GetCard(dealer.GiveCard());
+
+            if (Rules.NotOver21(StaticMethods.CountValue(PlayerHand)))
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
