@@ -49,6 +49,7 @@ namespace BJ
             label1.BackColor = Color.Transparent;
             label2.BackColor = Color.Transparent;
             _exitBotton.BackColor = Color.Transparent;
+            bid1.BackColor = Color.Transparent;
         }
         private void Form1_Load(object sender, EventArgs e)
         {

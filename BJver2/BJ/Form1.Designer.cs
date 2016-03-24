@@ -222,7 +222,6 @@
             this.bid1.Size = new System.Drawing.Size(42, 43);
             this.bid1.TabIndex = 23;
             this.bid1.UseVisualStyleBackColor = false;
-            this.bid1.Visible = false;
             this.bid1.Click += new System.EventHandler(this.bid1_Click);
             // 
             // bid5
