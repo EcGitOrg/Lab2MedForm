@@ -28,6 +28,10 @@ namespace BJ
             }
             return outPut;
         }
+        public override List<Card> GetHand()
+        {
+            return DealerHand;
+        }
         /// <summary>
         /// Count the value from cards sended in
         /// </summary>

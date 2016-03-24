@@ -8,13 +8,6 @@ namespace BJ
 {
     public static class Rules
     {
-        //1. The one closest but not over 21 wins the round.
-        //2. Anyone over 21, are bust and loses the round.
-        //3. Equal value dealer wins if player less than 5 cards.
-        //4. Dealer must draw to 17.
-        //5. Face cards(i.e.Knights, Queens and Kings) have the value of 10.
-        //6. Ace has either value of 1 or 11
-
         /// <summary>
         /// Check if player can get another card
         /// </summary>
@@ -53,7 +46,6 @@ namespace BJ
                 return false;
         }
 
-
         /// <summary>
         /// Compare total amount of points and return who is the winner
         /// </summary>
@@ -67,21 +59,7 @@ namespace BJ
             else { return false; }
 
         }
-        public static bool Loose(int balance)
-        {
-            if (balance < 1) { Console.WriteLine("You are out of cash.... GAMVEOVER"); Console.ReadKey(); Environment.Exit(-1); }
-            Console.WriteLine("Press ESC to exit or press other key for next round");
-            ConsoleKeyInfo key;
-            key = Console.ReadKey(true);
-            switch (key.Key)
-            {
-                case ConsoleKey.Escape:
-                    return false;
-                default:
-                    return true;
 
-            }
-        }
         public static void WinManager(bool Win, bool WinSplit, int bet, Player player, bool split)
         {
             if (split)
@@ -108,6 +86,27 @@ namespace BJ
             {
                 return false;
             }
+        }
+
+        public static int SetWinValue(int UserAceValue, int UserValue,User player)
+        {
+            int UserwinValue = 0;
+
+            UserAceValue = StaticMethods.CountAceValue(player.GetHand());        
+            UserValue = StaticMethods.CountValue(player.GetHand());
+                      
+            if (UserAceValue < 22) { UserwinValue = UserAceValue; } else if (UserValue < 22) { UserwinValue = UserValue; } else { UserwinValue = 0; }
+            return UserwinValue;
+        }
+        public static int GetBestValue(int UserAceValue, int UserValue, User player)
+        {
+            int UserwinValue = 0;
+
+            UserAceValue = StaticMethods.CountAceValue(player.GetHand());
+            UserValue = StaticMethods.CountValue(player.GetHand());
+
+            if (UserAceValue < 22) { UserwinValue = UserAceValue; } else  { UserwinValue = UserValue; }
+            return UserwinValue;
         }
     }
 }

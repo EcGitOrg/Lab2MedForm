@@ -19,13 +19,22 @@ namespace BJ
         int bet = 0;
         bool running = false;
         bool validBet = false;
-        int DealerTotalCardValue = 0;
+
+
+
         int PlayerCardValue = 0;
+        int PlayerCardAceValue = 0;
+        int PlayerWinValue = 0;
+
+        int DealerCardValue = 0;
+        int DealerCardAceValue = 0;
+        int DealerWinValue = 0;
+
 
 
         public Form1()
         {
-           //BackgroundImage = Properties.Resources.BlackJack_image4;
+            //BackgroundImage = Properties.Resources.BlackJack_image4;
             InitializeComponent();
             label1.Font = new Font("", 80);
             label2.Font = new Font("", 80);
@@ -36,21 +45,24 @@ namespace BJ
             //label1.Location = pos;
             //label1.BackColor = Color.Transparent;
             //  label1.ForeColor = Color.Black;
-          
+
             label1.BackColor = Color.Transparent;
             label2.BackColor = Color.Transparent;
             _exitBotton.BackColor = Color.Transparent;
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             _textBoxPlayerPoints.Text = "0";
             textBoxWallet.Text = player.balance.ToString();
             dealer.CheckActiveDeck(deck);
-          
+
 
         }
-
+        /// <summary>
+        /// Gets a valid bet
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void _betButton_Click(object sender, EventArgs e)
         {
             bet = 0;
@@ -74,13 +86,20 @@ namespace BJ
 
             Update();
         }
-
-
+        /// <summary>
+         /// QUIT
+         /// </summary>
+         /// <param name="sender"></param>
+         /// <param name="e"></param>
         private void _exitBotton_Click(object sender, EventArgs e)
         {
             Environment.Exit(-1);
         }
-
+        /// <summary>
+        /// Give player a card
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void _pickCard_Click(object sender, EventArgs e)
         {
             if (validBet)
@@ -88,65 +107,106 @@ namespace BJ
                 player.GetCard(dealer.GiveCard());
                 Update();
                 PlayerCardValue = StaticMethods.CountValue(player.ShowPlayerHand());
-                if (PlayerCardValue > 21) { Loose(); }
+                if (PlayerCardValue > 21)
+                {
+                    Loose();
+                }
             }
         }
 
-
+        /// <summary>
+        /// Player stands and let dealer get cards
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void _stand_Click(object sender, EventArgs e)
         {
-            if (DealerTotalCardValue < 17 && validBet)
+            if (DealerCardValue < 17 && validBet)
             {
-                DealerTotalCardValue = 0;
-                while (Rules.GiveDealerCard(DealerTotalCardValue))
+                DealerCardValue = 0;
+                while (Rules.GiveDealerCard(DealerCardValue))
                 {
                     dealer.GetCardToDealer();
-                    DealerTotalCardValue = StaticMethods.CountValue(dealer.ShowDealerHand());
+                    DealerCardValue = StaticMethods.CountValue(dealer.ShowDealerHand());
                 }
                 Update();
-
-                if (!Rules.NotOver21(DealerTotalCardValue))
+                if (!Rules.NotOver21(DealerCardValue))
                 {
-                    player.balance += bet;
-                    player.balance += bet;
                     Win();
                 }
-                else if (StaticMethods.CountValue(player.PlayerHand) > StaticMethods.CountValue(dealer.DealerHand))
+                else if (PlayerWinValue == 21 && DealerWinValue == 21)
                 {
-                    player.balance += bet;
-                    player.balance += bet;
+                    Draw();
+                }
+                else if (PlayerWinValue > DealerWinValue)
+                {
                     Win();
                 }
                 else
                 {
                     Loose();
                 }
-
             }
             Update();
         }
+        /// <summary>
+        /// Loose msg
+        /// </summary>
         private void Loose()
         {
             MessageBox.Show("YOU LOOSE!!");
             ClearVisualCards();
-            if (player.balance < 1) { MessageBox.Show("OUT OF CASH!!"); Environment.Exit(-1); }
+            if (player.balance < 1)
+            {
+                MessageBox.Show("OUT OF CASH!!");
+                Environment.Exit(-1);
+            }
         }
+        /// <summary>
+        /// Win msg
+        /// </summary>
         private void Win()
         {
+            player.balance += bet;
+            player.balance += bet;
             MessageBox.Show("YOU WIN!!");
             ClearVisualCards();
         }
+        private void Draw()
+        {
+            player.balance += bet;
+            MessageBox.Show("DRAW!!");
+            ClearVisualCards();
+        }
+        /// <summary>
+        /// Cleans Board
+        /// </summary>
+        public void ClearVisualCards()
+        {
+            bet = 0;
+            running = false; ;
+            validBet = false;
+            PlayerCardValue = 0;
+            DealerCardValue = 0;
+            player.PlayerHand.Clear();
+            dealer.DealerHand.Clear();
+            _betReadBox.Text = "";
+            Update();
+        }
+        /// <summary>
+        /// Updates all boards textboxes and stuff
+        /// </summary>
         private new void Update()
         {
-          
+
             string VisualCardHandPlayer = "";
             string VisualCardHandDealer = "";
             int CardNr = 0;
             foreach (var item in player.PlayerHand)
-            {           
+            {
                 string VisualCard = StaticMethods.GetFormCard(item);
                 VisualCardHandPlayer += VisualCard;
-                Card card = player.GetCard(CardNr);            
+                Card card = player.GetCard(CardNr);
             }
             foreach (var item in dealer.DealerHand)
             {
@@ -158,25 +218,16 @@ namespace BJ
             label1.Text = VisualCardHandPlayer;
             label2.Text = VisualCardHandDealer;
 
-           
-            textBoxWallet.Text = player.balance.ToString();
-            _textBoxDealerPoints.Text = StaticMethods.CountValue(dealer.ShowDealerHand()).ToString();
-            _textBoxPlayerPoints.Text = StaticMethods.CountValue(player.ShowPlayerHand()).ToString();
-        }
-        public void ClearVisualCards()
-        {
-            bet = 0;
-            running = false; ;
-            validBet = false;
-            PlayerCardValue = 0;
-            DealerTotalCardValue = 0;
-            player.PlayerHand.Clear();
-            dealer.DealerHand.Clear();
-            _betReadBox.Text = "";
-            Update();
 
-     
+            textBoxWallet.Text = player.balance.ToString();
+
+            PlayerWinValue = Rules.SetWinValue(PlayerCardAceValue, PlayerCardValue, player);
+            DealerWinValue = Rules.SetWinValue(DealerCardAceValue, DealerCardValue, dealer);
+
+            _textBoxDealerPoints.Text = Rules.GetBestValue(DealerCardAceValue, DealerCardValue, dealer).ToString();
+            _textBoxPlayerPoints.Text = Rules.GetBestValue(PlayerCardAceValue, PlayerCardValue, player).ToString();
         }
+
         public string nl()
         {
             return Environment.NewLine;

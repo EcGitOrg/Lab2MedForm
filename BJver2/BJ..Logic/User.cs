@@ -13,6 +13,10 @@ namespace BJ
             string output ="";
             return output;
         }
+       public virtual List<Card> GetHand()
+        {
+            return new List<Card>();
+        }
     
     }
 }

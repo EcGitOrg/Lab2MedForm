@@ -48,20 +48,32 @@ namespace BJ
         public static int CountAceValue(List<Card> CardList)
         {
             int totalValue = 0;
+            int countAce = 0;
             foreach (var item in CardList)
             {
-
-                totalValue += item._AceValue;
-                //if ( item.Type == "Ace") { item._AceValue = 10 + totalValue; }
-
+                if ( item._AceValue== 11) { countAce++; }
+                totalValue += item._AceValue;   
+            }
+            if (totalValue > 21 && countAce > 1)
+            {
+                totalValue -= 10;
+            }
+            if (totalValue > 21 && countAce > 2)
+            {
+                totalValue -= 10;
+            }
+            if (totalValue > 21 && countAce > 3)
+            {
+                totalValue -= 10;
+            }
+            if (totalValue > 21 && countAce > 4)
+            {
+                totalValue -= 10;
             }
             return totalValue;
         }
-        /// <summary>
-        /// Changes returns a type depended on int x
-        /// </summary>
-        /// <param name="x"></param>
-        /// <returns></returns>
+      
+        
         public static string GetType(int x)
         {
             string type = "";

@@ -29,6 +29,10 @@ namespace BJ
 
             return outPut;
         }
+        public override List<Card> GetHand()
+        {
+            return PlayerHand;
+        }
         public Card GetCard(int index)
         {
             return PlayerHand[index];

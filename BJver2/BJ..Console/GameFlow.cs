@@ -88,13 +88,12 @@ namespace BJ
                         SplitAceValue = StaticMethods.CountAceValue(player.SplittHand);
                     }
 
-                    int PlayerwinValue = 0;
+                    int PlayerwinValue = Rules.SetWinValue(PlayerAceValue, playerValue, player);
                     int SplitwinValue = 0;
-                    int DealerwinValue = 0;
+                    int DealerwinValue = Rules.SetWinValue(DealerAceValue, DealerValue, dealer);
 
 
-                    if (PlayerAceValue < 22) { PlayerwinValue = PlayerAceValue; } else if (playerValue < 22) { PlayerwinValue = playerValue; } else { PlayerwinValue = 0; }
-                    if (DealerAceValue < 22) { DealerwinValue = DealerAceValue; } else if (DealerValue < 22) { DealerwinValue = DealerValue; } else { DealerwinValue = 0; }
+
                     if (SplitAceValue < 22) { SplitwinValue = SplitAceValue; } else if (SplitValue < 22) { SplitwinValue = SplitValue; } else { SplitwinValue = 0; }
 
                     win = Rules.PlayerWin(PlayerwinValue, DealerwinValue);
@@ -119,7 +118,7 @@ namespace BJ
 
             Printer.EndMsg(player.ShowPlayerHand(), dealer.ShowDealerHand(), bet, player.balance, split, player, win, winSplit);
 
-
+           
             if (player.balance < 1) { gameOver = true; Printer.GameOver(); }
             return gameOver;
         }
